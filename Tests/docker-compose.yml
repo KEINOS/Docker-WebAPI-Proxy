@@ -3,7 +3,7 @@ version: '3'
 services:
   proxy:
     container_name: proxy
-    image: webapi-proxy
+    image: webapi-proxy:test
     ports:
       - "8012:80"
     volumes:
