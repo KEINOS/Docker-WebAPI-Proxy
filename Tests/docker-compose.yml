@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  proxy:
+    container_name: proxy
+    image: webapi-proxy
+    ports:
+      - "8012:80"
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+
+  app1:
+    container_name: app1
+    image: keinos/mini-php7
+    volumes:
+      - ./App-1/index.php:/app/htdocs/index.php
