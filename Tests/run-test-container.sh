@@ -16,7 +16,7 @@ docker-compose down
 # Test
 echo "Host Port: ${PORT_HOST_TEST}"
 echo "Expect   : ${text_expect}"
-echo "Result   : ${text_result}"
+echo "Result   : ${text_result:-error}"
 if [ "${text_expect}" = "${text_result}" ]; then
    echo 'Test passed.'
    exit 0

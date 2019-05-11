@@ -10,5 +10,5 @@ function get_value_test(){
     $value = isset($_GET['test']) ? $_GET['test'] : 'error';
     $value = empty($value) ? 'error' : $value;
 
-    return $value . 'hoge';
+    return $value;
 }
