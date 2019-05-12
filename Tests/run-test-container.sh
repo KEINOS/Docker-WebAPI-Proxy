@@ -35,7 +35,7 @@ done
 echo '  - Host is up'
 
 # Get random value to send
-text_expect=$(cat /dev/urandom | base64 | fold -w 10 | head -n 1 | sed 's/\+/X/g')
+text_expect=$(cat /dev/urandom | base64 | fold -w 10 | head -n 1 | sed 's/\+/X/')
 
 # Test
 text_result=$(curl "http://${NAME_HOST}:${PORT_HOST_TEST}/app1/?test=${text_expect}")
