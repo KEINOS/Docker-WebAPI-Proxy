@@ -1,4 +1,4 @@
-!/bin/sh
+#!/bin/sh
 
 # Alpine doesn't have cURL by default
 #curl --fail http://$(hostname)/ || exit 1
