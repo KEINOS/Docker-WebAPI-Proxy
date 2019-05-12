@@ -19,4 +19,4 @@ COPY nginx.conf /etc/nginx/nginx.conf
 COPY proxy.conf /etc/nginx/conf.d/proxy.conf
 COPY healthcheck.sh /healthcheck.sh
 
-HEALTHCHECK --interval=5m --timeout=3s CMD /healthcheck.sh
+HEALTHCHECK --interval=5m --timeout=151s CMD /healthcheck.sh
