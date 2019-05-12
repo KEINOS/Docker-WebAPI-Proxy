@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Alpine doesn't have cURL by default
-#curl --fail http://localhost/ || exit 1
+#curl --fail http://$hostname/ || exit 1
 
 set -eu
 
@@ -22,4 +22,5 @@ while ! is_host_up; do
   count=$(expr $count + 1)
 done
 
-wget -q --spider http://localhost/ || exit 1
+echo "Fetching from: ${hostname}"
+wget -q --spider "http://${hostname}/" || exit 1

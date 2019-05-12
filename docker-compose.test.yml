@@ -5,7 +5,9 @@ version: '3'
 
 services:
   sut:
+    container_name: proxy
     build: .
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock:ro
+
     command: /healthcheck.sh

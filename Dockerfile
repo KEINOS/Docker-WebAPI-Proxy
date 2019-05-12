@@ -10,8 +10,10 @@ LABEL maintainer="https://github.com/KEINOS" \
 
 RUN rm -rf /var/cache/apk/*
 
+EXPOSE 80
+
 # Copy docker.conf if you want to deal withmain or http contexes.
-#COPY docker.conf /etc/nginx/docker.conf
+COPY nginx.conf /etc/nginx/nginx.conf
 COPY proxy.conf /etc/nginx/conf.d/proxy.conf
 COPY healthcheck.sh /healthcheck.sh
 
