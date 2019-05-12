@@ -8,7 +8,9 @@ LABEL maintainer="https://github.com/KEINOS" \
       issue="https://github.com/KEINOS/Dockerfile_of_WebAPI-Proxy/issues" \
       license="MIT"
 
-RUN rm -rf /var/cache/apk/*
+RUN rm -rf /var/cache/apk/* && \
+    mkdir -p /var/www/html && \
+    echo '<h1>WebAPI Proxy</h1>' > /var/www/html/index.html
 
 EXPOSE 80
 
