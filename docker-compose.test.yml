@@ -5,25 +5,7 @@ version: '3'
 
 services:
   sut:
-    build: Tests
-    environment:
-      - PORT_HOST_TEST=8012
-      - NAME_HOST=proxy
-    depends_on:
-      - proxy
-      - app1
-    command: /run-test.sh
-
-  proxy:
-    container_name: proxy
     build: .
-    ports:
-      - "8012:80"
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock:ro
-
-  app1:
-    container_name: app1
-    image: keinos/mini-php7
-    volumes:
-      - ./Tests/App-1/index.php:/app/htdocs/index.php
+    command: /healthcheck.sh
