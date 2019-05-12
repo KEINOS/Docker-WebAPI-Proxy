@@ -10,16 +10,17 @@ function is_host_up () {
     return $?
 }
 
-count=1
+count_now=1
 count_max=30
+secs_sleep=3
 while ! is_host_up; do
-  echo "Waiting to boot Nginx(${count}/${count_max})"
-  if [ $count -gt $count_max ]; then
+  echo "Waiting to boot Nginx(${count_now}/${count_max})"
+  if [ $count_now -gt $count_max ]; then
     echo 'Can not boot nginx.'
     exit 1
   fi
-  sleep 1
-  count=$(expr $count + 1)
+  sleep $secs_sleep
+  count_now=$(expr $count_now + 1)
 done
 
 echo "Fetching from: ${hostname}"
