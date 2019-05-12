@@ -10,9 +10,9 @@ function is_host_up () {
     return $?
 }
 
-count_now=1
+count_now=0
 count_max=30
-secs_sleep=3
+secs_sleep=5
 while ! is_host_up; do
   echo "Waiting to boot Nginx(${count_now}/${count_max})"
   if [ $count_now -gt $count_max ]; then
