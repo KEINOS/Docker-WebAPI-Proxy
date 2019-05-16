@@ -8,5 +8,14 @@ services:
     build: .
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock:ro
+      - ./Tests/run_test.sh:/run_test.sh
+      - ./Tests/unsecure_dhparam.pem:/etc/nginx/dhparam/dhparam.pem
+    depends_on:
+      - whoami
+    entrypoint:
+      - /run_test.sh
 
-    command: /healthcheck.sh
+  # Simple container that waits on 8000 port
+  whoami:
+    container_name: whoami
+    image: jwilder/whoami

@@ -14,9 +14,13 @@ RUN rm -rf /var/cache/apk/* && \
 
 EXPOSE 80
 
-# Copy docker.conf if you want to deal withmain or http contexes.
-COPY nginx.conf /etc/nginx/nginx.conf
-COPY proxy.conf /etc/nginx/conf.d/proxy.conf
-COPY healthcheck.sh /healthcheck.sh
+# Over-riding confs
+COPY files_include/nginx.conf /etc/nginx/nginx.conf
+COPY files_include/proxy.conf /etc/nginx/conf.d/default.conf
 
-HEALTHCHECK --interval=5m --timeout=151s CMD /healthcheck.sh
+# Default server context
+COPY files_include/proxy.conf /etc/nginx/conf.d/proxy.conf
+
+# Health check
+COPY files_include/healthcheck.sh /healthcheck.sh
+# HEALTHCHECK --interval=5m --timeout=151s CMD /healthcheck.sh
